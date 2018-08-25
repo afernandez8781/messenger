@@ -20831,8 +20831,8 @@ window.Vue = __webpack_require__(43);
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_bootstrap_vue__["a" /* default */]);
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('message-conversation-component', __webpack_require__(219));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('contact-component', __webpack_require__(216));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('message-conversation-component', __webpack_require__(216));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('contact-component', __webpack_require__(219));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('contact-list-component', __webpack_require__(222));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('active-conversation-component', __webpack_require__(225));
 
@@ -33008,7 +33008,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ContactComponent.vue"
+Component.options.__file = "resources/assets/js/components/MessageConversationComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -33017,9 +33017,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-72f18074", Component.options)
+    hotAPI.createRecord("data-v-0f441fac", Component.options)
   } else {
-    hotAPI.reload("data-v-72f18074", Component.options)
+    hotAPI.reload("data-v-0f441fac", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -33046,6 +33046,126 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        writtenByMe: Boolean
+    },
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-media",
+    {
+      staticClass: "mb-2",
+      attrs: { "right-align": _vm.writtenByMe, "vertical-align": "center" }
+    },
+    [
+      _c("b-img", {
+        attrs: {
+          slot: "aside",
+          rounded: "circle",
+          blank: "",
+          "blank-color": "#ccc",
+          with: "50",
+          height: "50",
+          alt: "placeholder"
+        },
+        slot: "aside"
+      }),
+      _vm._v(" "),
+      _c("b-card", [_vm._t("default")], 2)
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0f441fac", module.exports)
+  }
+}
+
+/***/ }),
+/* 219 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(24)
+/* script */
+var __vue_script__ = __webpack_require__(220)
+/* template */
+var __vue_template__ = __webpack_require__(221)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ContactComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-72f18074", Component.options)
+  } else {
+    hotAPI.reload("data-v-72f18074", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 220 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -33056,21 +33176,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['variant'],
-    data: function data() {
-        return {
-            name: 'Alfredo Fernandez',
-            lastMessage: 'Tú: Hasta luego',
-            lastTime: '1:37 pm'
-        };
+    props: {
+        variant: String,
+        conversation: Object
     },
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
+    data: function data() {
+        return {};
+    },
+    mounted: function mounted() {}
 });
 
 /***/ }),
-/* 218 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -33111,10 +33228,12 @@ var render = function() {
               attrs: { cols: "6", "align-self": "center" }
             },
             [
-              _c("p", { staticClass: "mb-1" }, [_vm._v(_vm._s(_vm.name))]),
+              _c("p", { staticClass: "mb-1" }, [
+                _vm._v(_vm._s(_vm.conversation.contact_name))
+              ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-muted small mb-0" }, [
-                _vm._v(_vm._s(_vm.lastMessage))
+                _vm._v(_vm._s(_vm.conversation.last_message))
               ])
             ]
           ),
@@ -33124,7 +33243,7 @@ var render = function() {
             { staticClass: "d-none d-md-block", attrs: { cols: "3" } },
             [
               _c("p", { staticClass: "text-muted small" }, [
-                _vm._v(_vm._s(_vm.lastTime))
+                _vm._v(_vm._s(_vm.conversation.last_time))
               ])
             ]
           )
@@ -33142,126 +33261,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-72f18074", module.exports)
-  }
-}
-
-/***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(24)
-/* script */
-var __vue_script__ = __webpack_require__(220)
-/* template */
-var __vue_template__ = __webpack_require__(221)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/MessageConversationComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0f441fac", Component.options)
-  } else {
-    hotAPI.reload("data-v-0f441fac", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 220 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        writtenByMe: Boolean
-    },
-    data: function data() {
-        return {};
-    },
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 221 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "b-media",
-    {
-      staticClass: "mb-2",
-      attrs: { "right-align": _vm.writtenByMe, "vertical-align": "center" }
-    },
-    [
-      _c("b-img", {
-        attrs: {
-          slot: "aside",
-          rounded: "circle",
-          blank: "",
-          "blank-color": "#ccc",
-          with: "50",
-          height: "50",
-          alt: "placeholder"
-        },
-        slot: "aside"
-      }),
-      _vm._v(" "),
-      _c("b-card", [_vm._t("default")], 2)
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0f441fac", module.exports)
   }
 }
 
@@ -33341,13 +33340,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
-        return {};
+        return {
+            conversations: []
+        };
     },
     mounted: function mounted() {
-        console.log('Component mounted.');
+        this.getConversations();
+    },
+
+    methods: {
+        getConversations: function getConversations() {
+            var _this = this;
+
+            axios.get('/api/conversations').then(function (response) {
+                _this.conversations = response.data;
+            });
+        },
+        selectConversation: function selectConversation(conversation) {
+            console.log(conversation);
+        }
     }
 });
 
@@ -33376,14 +33393,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "b-list-group",
-        [
-          _c("contact-component", { attrs: { variant: "secondary" } }),
-          _vm._v(" "),
-          _c("contact-component", { attrs: { variant: "" } }),
-          _vm._v(" "),
-          _c("contact-component", { attrs: { variant: "success" } })
-        ],
-        1
+        _vm._l(_vm.conversations, function(conversation) {
+          return _c("contact-component", {
+            key: conversation.id,
+            attrs: { conversation: conversation },
+            nativeOn: {
+              click: function($event) {
+                _vm.selectConversation(conversation)
+              }
+            }
+          })
+        })
       )
     ],
     1
@@ -33505,7 +33525,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             messages: [],
-            newMessage: ''
+            newMessage: '',
+            contactId: 2
         };
     },
     mounted: function mounted() {
@@ -33516,7 +33537,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getMessages: function getMessages() {
             var _this = this;
 
-            axios.get('/api/messages').then(function (response) {
+            axios.get('/api/messages?contact_id=' + this.contactId).then(function (response) {
                 // console.log(response.data);
                 _this.messages = response.data;
             });
