@@ -22,7 +22,7 @@
             <b-navbar toggleable type="dark" variant="primary">
                 <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
 
-                <b-navbar-brand href="{{ url('/') }}">
+                <b-navbar-brand href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </b-navbar-brand>
 
@@ -33,7 +33,10 @@
                             <b-nav-item href="{{ route('register') }}">Registro</b-nav-item>
                         @else
                             <!-- Navbar dropdowns -->
-                            <b-nav-item-dropdown text="Username" right>
+                            <b-nav-item-dropdown text="{{ auth()->user()->name }}" right>
+                                <b-dropdown-item href={{ url('/profile') }} right>
+                                    Modifical perfil
+                                </b-dropdown-item>
                                 <b-dropdown-item href="#" @click="logout">
                                     Cerrar sesión
                                 </b-dropdown-item>
@@ -53,6 +56,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

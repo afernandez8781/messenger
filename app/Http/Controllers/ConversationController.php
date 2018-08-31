@@ -12,11 +12,14 @@ class ConversationController extends Controller
     	return Conversation::where('user_id', auth()->id())
     		->get([
     			'id',
-    			'contact_id', // tiene un accesor contact_name
+    			'contact_id',
     			'has_blocked',
     			'listen_notifications',
     			'last_message',
     			'last_time'
     		]);
+
+        // contact_name
+        // contact_image
     }
 }
